@@ -71,6 +71,7 @@ export default function DemoRequestsPage() {
 
   useEffect(() => {
     fetchDemoRequests();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, status]);
 
   useEffect(() => {

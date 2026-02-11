@@ -26,7 +26,7 @@ export async function sendEmail(options: SendEmailOptions): Promise<{ success: b
       subject: options.subject,
       html: options.html,
       text: options.text,
-      replyTo: options.replyTo,
+      reply_to: options.replyTo,
     });
 
     if (error) {
