@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: siteConfig.seo.titleTemplate,
   },
   description: siteConfig.seo.defaultDescription,
-  keywords: siteConfig.seo.defaultKeywords,
+  keywords: [...siteConfig.seo.defaultKeywords],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
