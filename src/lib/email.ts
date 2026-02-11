@@ -1,7 +1,14 @@
 import { Resend } from 'resend';
 
-// Initialize Resend client
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy-initialize Resend client to avoid build-time errors
+let resend: Resend | null = null;
+
+function getResendClient(): Resend {
+  if (!resend) {
+    resend = new Resend(process.env.RESEND_API_KEY || '');
+  }
+  return resend;
+}
 
 // Email configuration
 const EMAIL_FROM = process.env.EMAIL_FROM || 'SiteLab <hello@sitelab.com>';
@@ -20,7 +27,7 @@ interface SendEmailOptions {
  */
 export async function sendEmail(options: SendEmailOptions): Promise<{ success: boolean; id?: string; error?: string }> {
   try {
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResendClient().emails.send({
       from: EMAIL_FROM,
       to: options.to,
       subject: options.subject,
