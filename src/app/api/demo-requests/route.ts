@@ -3,6 +3,8 @@ import { verifyCaptcha } from '@/lib/captcha';
 import { demoRequestSchema } from '@/lib/validations';
 import { createDemoRequest, getDemoRequests } from '@/services/demoRequestService';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/demo-requests
  * Create a new demo request

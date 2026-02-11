@@ -3,6 +3,8 @@ import { verifyCaptcha } from '@/lib/captcha';
 import { contactSchema } from '@/lib/validations';
 import { sendEmail, ADMIN_EMAIL } from '@/lib/email';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/contact
  * Handle contact form submissions

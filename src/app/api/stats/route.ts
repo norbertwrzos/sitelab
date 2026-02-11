@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { getLeadStats } from '@/services/leadService';
 import { getDemoRequestStats } from '@/services/demoRequestService';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * GET /api/stats
  * Get dashboard statistics (admin only - TODO: add auth)

@@ -13,6 +13,8 @@ import {
   CheckCircle,
 } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 async function DashboardStats() {
   const [leadStats, demoStats] = await Promise.all([
     getLeadStats(),

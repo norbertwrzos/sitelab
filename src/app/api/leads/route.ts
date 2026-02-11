@@ -3,6 +3,8 @@ import { verifyCaptcha } from '@/lib/captcha';
 import { leadSchema } from '@/lib/validations';
 import { createLead, getLeads } from '@/services/leadService';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * POST /api/leads
  * Create a new lead from form submission
