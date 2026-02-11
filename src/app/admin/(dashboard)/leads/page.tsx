@@ -162,13 +162,8 @@ export default function LeadsPage() {
               value={status}
               onChange={(e) => handleStatusChange(e.target.value)}
               className="w-40"
-            >
-              {statusOptions.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </Select>
+              options={statusOptions}
+            />
           </div>
           <p className="text-sm text-slate-500 sm:ml-auto">
             Showing {leads.length} of {total} leads
