@@ -97,7 +97,7 @@ export default function SettingsPage() {
           <Button
             variant="outline"
             onClick={handleSignOut}
-            loading={isLoading}
+            isLoading={isLoading}
             className="text-red-600 border-red-200 hover:bg-red-50"
           >
             <LogOut className="w-4 h-4 mr-2" />
