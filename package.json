@@ -17,7 +17,7 @@
     "@hcaptcha/react-hcaptcha": "^1.10.1",
     "@hookform/resolvers": "^3.3.4",
     "@prisma/client": "^5.10.2",
-    "@react-email/components": "^0.0.15",
+    "@react-email/components": "^0.0.31",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
