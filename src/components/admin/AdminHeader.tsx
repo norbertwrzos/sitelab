@@ -65,7 +65,7 @@ export function AdminHeader({ user }: AdminHeaderProps) {
             onClick={() => setUserMenuOpen(!userMenuOpen)}
             className="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-100 transition-colors"
           >
-            <Avatar name={user.name} size="sm" />
+            <Avatar fallback={user.name} size="sm" />
             <div className="hidden sm:block text-left">
               <p className="text-sm font-medium text-slate-900">{user.name}</p>
               <p className="text-xs text-slate-500">{user.email}</p>
