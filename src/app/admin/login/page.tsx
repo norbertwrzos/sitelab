@@ -77,7 +77,7 @@ export default function AdminLoginPage() {
               label="Email"
               type="email"
               placeholder="admin@sitelab.com"
-              icon={<Mail className="w-5 h-5" />}
+              leftIcon={<Mail className="w-5 h-5" />}
               error={errors.email?.message}
               {...register('email')}
             />
@@ -86,7 +86,7 @@ export default function AdminLoginPage() {
               label="Password"
               type="password"
               placeholder="••••••••"
-              icon={<Lock className="w-5 h-5" />}
+              leftIcon={<Lock className="w-5 h-5" />}
               error={errors.password?.message}
               {...register('password')}
             />
@@ -95,7 +95,7 @@ export default function AdminLoginPage() {
               type="submit"
               className="w-full"
               size="lg"
-              loading={isLoading}
+              isLoading={isLoading}
             >
               Sign In
             </Button>
