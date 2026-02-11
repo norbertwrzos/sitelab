@@ -1,0 +1,96 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Lead collection from contact forms and general inquiries
+model Lead {
+  id           String     @id @default(cuid())
+  name         String
+  email        String
+  businessType String?
+  message      String?    @db.Text
+  source       String     @default("contact_form")
+  status       LeadStatus @default(NEW)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// 24-hour demo request submissions
+model DemoRequest {
+  id             String     @id @default(cuid())
+  name           String
+  email          String
+  businessName   String
+  businessType   String
+  websiteGoals   String?    @db.Text
+  currentWebsite String?
+  phone          String?
+  status         DemoStatus @default(PENDING)
+  demoUrl        String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  followUpSentAt DateTime?
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// Portfolio projects for showcase
+model PortfolioItem {
+  id          String   @id @default(cuid())
+  title       String
+  clientName  String
+  industry    String
+  problem     String   @db.Text
+  solution    String   @db.Text
+  outcome     String   @db.Text
+  imageUrl    String
+  beforeImage String?
+  afterImage  String?
+  liveUrl     String?
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([industry])
+  @@index([featured])
+}
+
+// Admin users for dashboard access
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Lead status enum
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  CLOSED
+}
+
+// Demo request status enum
+enum DemoStatus {
+  PENDING
+  IN_PROGRESS
+  DELIVERED
+  CONVERTED
+  EXPIRED
+}
